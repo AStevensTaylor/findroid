@@ -76,7 +76,7 @@ jobs:
         with:
           name: tv-libre-x86-debug.apk
           path: ./app/tv/build/outputs/apk/libre/debug/tv-libre-x86-debug.apk
-:
+  assemble-staging:
     name: Assemble Staging
     runs-on: ubuntu-24.04
     steps:
