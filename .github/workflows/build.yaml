@@ -20,8 +20,8 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
       - name: Build with Gradle
         run: ./gradlew lintDebug ktlintCheck
-  assemble:
-    name: Assemble
+  assemble-debug:
+    name: Assemble Debug
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
@@ -76,3 +76,59 @@ jobs:
         with:
           name: tv-libre-x86-debug.apk
           path: ./app/tv/build/outputs/apk/libre/debug/tv-libre-x86-debug.apk
+:
+    name: Assemble Staging
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Build with Gradle
+        run: ./gradlew assembleStaging
+        # Upload all build artifacts in separate steps. This can be shortened once https://github.com/actions/upload-artifact/pull/354 is merged.
+      - name: Upload artifact phone-libre-arm64-v8a-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: phone-libre-arm64-v8a-staging.apk
+          path: ./app/phone/build/outputs/apk/libre/satging/phone-libre-arm64-v8a-staging.apk
+      - name: Upload artifact phone-libre-armeabi-v7a-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: phone-libre-armeabi-v7a-staging.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-armeabi-v7a-staging.apk
+      - name: Upload artifact phone-libre-x86_64-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: phone-libre-x86_64-staging.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-x86_64-staging.apk
+      - name: Upload artifact phone-libre-x86-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: phone-libre-x86-staging.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-x86-staging.apk
+      - name: Upload artifact tv-libre-arm64-v8a-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv-libre-arm64-v8a-staging.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-arm64-v8a-staging.apk
+      - name: Upload artifact tv-libre-armeabi-v7a-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv-libre-armeabi-v7a-staging.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-armeabi-v7a-staging.apk
+      - name: Upload artifact tv-libre-x86_64-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv-libre-x86_64-staging.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-x86_64-staging.apk
+      - name: Upload artifact tv-libre-x86-staging.apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv-libre-x86-staging.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-x86-staging.apk
