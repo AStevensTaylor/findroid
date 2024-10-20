@@ -76,7 +76,7 @@ jobs:
         with:
           name: tv-libre-x86-debug.apk
           path: ./app/tv/build/outputs/apk/libre/debug/tv-libre-x86-debug.apk
-  assemble-staging:
+  assemble-staging-unsigned:
     name: Assemble Staging
     runs-on: ubuntu-24.04
     steps:
@@ -92,43 +92,43 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleStaging
         # Upload all build artifacts in separate steps. This can be shortened once https://github.com/actions/upload-artifact/pull/354 is merged.
-      - name: Upload artifact phone-libre-arm64-v8a-staging.apk
+      - name: Upload artifact phone-libre-arm64-v8a-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: phone-libre-arm64-v8a-staging.apk
-          path: ./app/phone/build/outputs/apk/libre/satging/phone-libre-arm64-v8a-staging.apk
-      - name: Upload artifact phone-libre-armeabi-v7a-staging.apk
+          name: phone-libre-arm64-v8a-staging-unsigned.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-arm64-v8a-staging-unsigned.apk
+      - name: Upload artifact phone-libre-armeabi-v7a-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: phone-libre-armeabi-v7a-staging.apk
-          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-armeabi-v7a-staging.apk
-      - name: Upload artifact phone-libre-x86_64-staging.apk
+          name: phone-libre-armeabi-v7a-staging-unsigned.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-armeabi-v7a-staging-unsigned.apk
+      - name: Upload artifact phone-libre-x86_64-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: phone-libre-x86_64-staging.apk
-          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-x86_64-staging.apk
-      - name: Upload artifact phone-libre-x86-staging.apk
+          name: phone-libre-x86_64-staging-unsigned.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-x86_64-staging-unsigned.apk
+      - name: Upload artifact phone-libre-x86-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: phone-libre-x86-staging.apk
-          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-x86-staging.apk
-      - name: Upload artifact tv-libre-arm64-v8a-staging.apk
+          name: phone-libre-x86-staging-unsigned.apk
+          path: ./app/phone/build/outputs/apk/libre/staging/phone-libre-x86-staging-unsigned.apk
+      - name: Upload artifact tv-libre-arm64-v8a-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: tv-libre-arm64-v8a-staging.apk
-          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-arm64-v8a-staging.apk
-      - name: Upload artifact tv-libre-armeabi-v7a-staging.apk
+          name: tv-libre-arm64-v8a-staging-unsigned.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-arm64-v8a-staging-unsigned.apk
+      - name: Upload artifact tv-libre-armeabi-v7a-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: tv-libre-armeabi-v7a-staging.apk
-          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-armeabi-v7a-staging.apk
-      - name: Upload artifact tv-libre-x86_64-staging.apk
+          name: tv-libre-armeabi-v7a-staging-unsigned.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-armeabi-v7a-staging-unsigned.apk
+      - name: Upload artifact tv-libre-x86_64-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: tv-libre-x86_64-staging.apk
-          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-x86_64-staging.apk
-      - name: Upload artifact tv-libre-x86-staging.apk
+          name: tv-libre-x86_64-staging-unsigned.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-x86_64-staging-unsigned.apk
+      - name: Upload artifact tv-libre-x86-staging-unsigned.apk
         uses: actions/upload-artifact@v4
         with:
-          name: tv-libre-x86-staging.apk
-          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-x86-staging.apk
+          name: tv-libre-x86-staging-unsigned.apk
+          path: ./app/tv/build/outputs/apk/libre/staging/tv-libre-x86-staging-unsigned.apk
